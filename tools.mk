@@ -1,4 +1,4 @@
-REBAR ?= $(shell pwd)/rebar3
+REBAR ?= rebar3
 
 compile-utils: compile
 	for filename in "test/utils/*.erl" ; do \

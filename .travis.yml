@@ -1,17 +1,18 @@
 language: erlang
 otp_release:
-  - 19.3
-  - 20.3
   - 21.0
+  - 20.3
+  - 19.3
 install:
-  - make
+  - wget https://s3.amazonaws.com/rebar3/rebar3 && chmod u+x rebar3
+  - REBAR=./rebar3 make
   - ./rebar3 update
 script:
-  - make test
-  - make reltest
-  - make systests
-  - make dialyzer
-  - make lint
+  - REBAR=./rebar3 make test
+  - REBAR=./rebar3 make reltest
+  - REBAR=./rebar3 make systests
+  - REBAR=./rebar3 make dialyzer
+  - REBAR=./rebar3 make lint
 notifications:
   email: bieniusa@cs.uni-kl.de
 sudo: required
